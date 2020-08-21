@@ -45,10 +45,10 @@ def returnCAM(feature_conv, weight_softmax, class_idx):
     bz, nc, h, w = feature_conv.shape
     output_cam = []
     for idx in class_idx:
-        cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h*w)))
-        cam = cam.reshape(h, w)
-        cam = cam - np.min(cam)
-        cam_img = cam / np.max(cam)
+        cam = weight_softmax[idx].dot(feature_conv.reshape((nc, h*w))) # reshpae为[nc,h*w]维度便于计算，点乘
+        cam = cam.reshape(h, w) #reshape回来
+        cam = cam - np.min(cam) 
+        cam_img = cam / np.max(cam) #这两步是归一化
         cam_img = np.uint8(255 * cam_img)
         output_cam.append(cv2.resize(cam_img, size_upsample))
     return output_cam
