@@ -1,3 +1,5 @@
+# add some own comments on pytorch vision for CAM
+
 # Sample code for the Class Activation Mapping
 We propose a simple technique to expose the implicit attention of Convolutional Neural Networks on the image. It highlights the most informative image regions relevant to the predicted class. You could get attention-based model instantly by tweaking your own CNN a little bit more. The paper is published at [CVPR'16](http://arxiv.org/pdf/1512.04150.pdf).
 
